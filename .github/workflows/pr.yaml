@@ -1,0 +1,21 @@
+name: pull request
+
+on:
+  pull_request:
+    types: 
+      - opened
+      - synchronize
+    # ここで指定するブランチはマージ先（main ,develop）を指定する。※マージ元（feature/** , releases/**）を指定するわけではないので注意
+    branches:
+      - develop
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run a command
+      uses: actions/checkout@v3
+    
+    - name: test message
+      run: echo "test"
